@@ -35,7 +35,7 @@ export default function NewYearResolution() {
             />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-500 flex items-center justify-center p-8">
               <p className="text-white text-2xl font-serif text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                "This year, invest in yourself. A healthy diet is a gift you give to your future."
+                &quot;This year, invest in yourself. A healthy diet is a gift you give to your future.&quot;
               </p>
             </div>
           </motion.div>

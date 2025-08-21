@@ -60,7 +60,7 @@ export default function ServicesCarousel() {
       <div className=" mx-auto px-20">
         <motion.div variants={container} className="flex justify-between items-center mb-12">
           <motion.h2 variants={item} className="text-6xl font-serif">
-            You'll find here
+            You&apos;ll find here
             <span className="block text-green-600">How we do?</span>
           </motion.h2>
           <motion.button variants={item} className="bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-700 transition-colors">

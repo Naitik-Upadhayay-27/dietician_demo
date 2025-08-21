@@ -67,7 +67,7 @@ export default function SuccessStories() {
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl md:text-5xl font-serif">
             Successful Stories from
-            <span className="block text-green-600">Client's Experience</span>
+            <span className="block text-green-600">Client&apos;s Experience</span>
           </h2>
           <button className="bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-700 transition-colors whitespace-nowrap">
             View More Stories

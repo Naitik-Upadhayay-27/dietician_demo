@@ -137,7 +137,7 @@ export default function AppointmentFAQ() {
           {/* FAQ Card */}
           <motion.div variants={item} className=" bg-transparent rounded-lg">
             <div className="p-6 md:p-8">
-              <motion.h3 variants={item} className="text-3xl md:text-4xl font-serif text-white drop-shadow-sm">Faq's</motion.h3>
+              <motion.h3 variants={item} className="text-3xl md:text-4xl font-serif text-white drop-shadow-sm">FAQ&apos;s</motion.h3>
               <motion.div variants={item} className="h-1 w-14 bg-green-600 mt-3 mb-6" />
 
               {/* Active/featured item */}

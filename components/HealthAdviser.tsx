@@ -42,11 +42,11 @@ export default function HealthAdviser() {
             </motion.h2>
             <motion.div variants={container} className="text-gray-600 text-lg mb-8 space-y-6">
               <motion.p variants={item}>
-                As the New Year approaches, it’s the perfect time to commit to a healthier, more vibrant you. Many of us make resolutions to improve our well-being, but turning those goals into lasting habits can be a challenge. That's where professional guidance makes all the difference. Instead of navigating confusing diets and conflicting advice alone, you can have a dedicated partner on your journey to wellness.
+                As the New Year approaches, it&apos;s the perfect time to commit to a healthier, more vibrant you. Many of us make resolutions to improve our well-being, but turning those goals into lasting habits can be a challenge. That&apos;s where professional guidance makes all the difference. Instead of navigating confusing diets and conflicting advice alone, you can have a dedicated partner on your journey to wellness.
               </motion.p>
 
               <motion.p variants={item}>
-                Here’s how I can support your New Year’s resolution:
+                Here&apos;s how I can support your New Year&apos;s resolution:
               </motion.p>
               <motion.ul variants={container} className="space-y-4 pt-2">
                 <motion.li variants={item} className="flex items-start">
@@ -54,7 +54,7 @@ export default function HealthAdviser() {
                     <CheckCircle size={20} />
                   </span>
                   <span>
-                    <strong>Personalized Nutrition Plans:</strong> Tailored meal guides that are delicious, easy to follow, and designed specifically for your body's needs.
+                    <strong>Personalized Nutrition Plans:</strong> Tailored meal guides that are delicious, easy to follow, and designed specifically for your body&apos;s needs.
                   </span>
                 </motion.li>
                 <motion.li variants={item} className="flex items-start">
