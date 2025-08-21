@@ -21,7 +21,7 @@ export default function MotivationalMarquee() {
       <Marquee gradient={false} speed={50} className="no-scrollbar">
         {motivationalWords.map((word, index) => (
           <div key={index} className="flex items-center">
-            <span className="text-6xl font-semibold mx-12 tracking-wider uppercase">{word}</span>
+            <span className="lg:text-6xl text-4xl font-semibold mx-12 tracking-wider uppercase">{word}</span>
             <span className="text-green-300 text-4xl">•</span>
           </div>
         ))}

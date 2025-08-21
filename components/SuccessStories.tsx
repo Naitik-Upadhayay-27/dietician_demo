@@ -62,22 +62,21 @@ export default function SuccessStories() {
   }, [isPlaying, activeVideo])
 
   return (
-    <section className="py-20 bg-white">
-      <div className="mx-auto px-20">
-        <div className="flex justify-between items-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif">
+    <section className="pt-5 pb-15 -mt-20 lg:-mt-15 md:py-20 bg-white">
+      <div className="mx-auto px-4 md:px-20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 gap-4">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif">
             Successful Stories from
             <span className="block text-green-600">Client&apos;s Experience</span>
           </h2>
-          <button className="bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-green-700 transition-colors whitespace-nowrap">
+          <button className="bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-md font-semibold hover:bg-green-700 transition-colors whitespace-nowrap">
             View More Stories
           </button>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Video Player */}
-          {/* Main Video Player */}
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3 order-1 lg:order-none">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
               <video
                 ref={videoRef}
@@ -113,14 +112,30 @@ export default function SuccessStories() {
                 </button>
               )}
 
-              <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-10">
-                <h3 className="text-white text-xl font-semibold">{activeVideo.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-2 md:p-10">
+                <h3 className="text-white text-sm md:text-xl font-semibold">{activeVideo.title}</h3>
               </div>
             </div>
             
+            {/* Mobile: Show 2 videos after main video */}
+            <div className="lg:hidden grid grid-cols-2 gap-4 mt-2">
+              {videos.slice(1).map((video) => (
+                <div
+                  key={video.id}
+                  className="relative w-full h-20 rounded-lg cursor-pointer overflow-hidden shadow-md"
+                  onClick={() => handleSelectVideo(video)}
+                >
+                  <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            
             {/* Content below video */}
-            <div className="mt-6 bg-gradient-to-br from-white to-green-50 p-6 rounded-lg shadow-lg border border-green-100">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Transform Your Health Journey</h3>
+            <div className="mt-4 lg:mt-6 bg-gradient-to-br from-white to-green-50 p-4 md:p-6 rounded-lg shadow-lg border border-green-100">
+              <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-4">Transform Your Health Journey</h3>
               <p className="text-gray-600 mb-6">
                 Watch real success stories from our clients who have transformed their lives through our personalized nutrition programs. 
                 Each journey is unique, but the results speak for themselves.
@@ -147,26 +162,26 @@ export default function SuccessStories() {
 
               {/* Action buttons and stats */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4 border-t border-green-200">
-                <div className="flex space-x-6">
+                <div className="flex flex-wrap gap-4 md:space-x-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">500+</div>
-                    <div className="text-sm text-gray-600">Success Stories</div>
+                    <div className="text-xl md:text-2xl font-bold text-green-600">500+</div>
+                    <div className="text-xs md:text-sm text-gray-600">Success Stories</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">95%</div>
-                    <div className="text-sm text-gray-600">Client Satisfaction</div>
+                    <div className="text-xl md:text-2xl font-bold text-green-600">95%</div>
+                    <div className="text-xs md:text-sm text-gray-600">Client Satisfaction</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-green-600">2-8</div>
-                    <div className="text-sm text-gray-600">Weeks Results</div>
+                    <div className="text-xl md:text-2xl font-bold text-green-600">2-8</div>
+                    <div className="text-xs md:text-sm text-gray-600">Weeks Results</div>
                   </div>
                 </div>
                 
-                <div className="flex space-x-3">
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
+                  <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 md:px-6 text-sm md:text-base rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                     Start Your Journey
                   </button>
-                  <button className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                  <button className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-2 md:px-6 text-sm md:text-base rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
                     Free Consultation
                   </button>
                 </div>
@@ -174,9 +189,10 @@ export default function SuccessStories() {
             </div>
           </div>
 
-          {/* Video Playlist */}
-          <div className="w-full lg:w-1/3">
-            <div className="space-y-4">
+          {/* Video Playlist - Desktop */}
+          <div className="w-full lg:w-1/3 order-2 lg:order-none">
+            {/* Desktop: Original layout */}
+            <div className="hidden lg:block space-y-4">
               {videos.map((video) => (
                 <div
                   key={video.id}
@@ -209,7 +225,7 @@ export default function SuccessStories() {
         </div>
         
         {/* Content Section Below */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-16 hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-gray-800 mb-3">Personalized Nutrition Plans</h3>
             <p className="text-gray-600">Our expert nutritionists create customized meal plans tailored to your specific health goals, dietary preferences, and lifestyle needs.</p>

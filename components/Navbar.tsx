@@ -35,16 +35,16 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
-            className="bg-green-600 text-white py-2 px-4"
+            className="bg-green-600 text-white py-1 md:py-2 px-4"
           >
-            <div className="container mx-auto flex justify-between items-center text-sm">
-              <span>Welcome to Dietician Demo Landing Page Designed and Developed by Naitik Upadhayay !</span>
-              <div className="flex space-x-3">
-                <Facebook size={16} className="hover:text-green-200 cursor-pointer" />
-                <Twitter size={16} className="hover:text-green-200 cursor-pointer" />
-                <Instagram size={16} className="hover:text-green-200 cursor-pointer" />
-                <Linkedin size={16} className="hover:text-green-200 cursor-pointer" />
-                <MapPin size={16} className="hover:text-green-200 cursor-pointer" />
+            <div className="container mx-auto flex justify-between items-center text-xs md:text-sm">
+              <span className="truncate pr-2">Welcome to Dietician Demo Landing Page Designed and Developed by Naitik Upadhayay !</span>
+              <div className="flex space-x-2 md:space-x-3 flex-shrink-0">
+                <Facebook className="w-3 h-3 md:w-4 md:h-4 hover:text-green-200 cursor-pointer" />
+                <Twitter className="w-3 h-3 md:w-4 md:h-4 hover:text-green-200 cursor-pointer" />
+                <Instagram className="w-3 h-3 md:w-4 md:h-4 hover:text-green-200 cursor-pointer" />
+                <Linkedin className="w-3 h-3 md:w-4 md:h-4 hover:text-green-200 cursor-pointer" />
+                <MapPin className="w-3 h-3 md:w-4 md:h-4 hover:text-green-200 cursor-pointer" />
               </div>
             </div>
           </motion.div>
@@ -56,9 +56,9 @@ export default function Navbar() {
         variants={container}
         initial="hidden"
         animate="show"
-        className={`sticky top-0 z-50 bg-white/90 backdrop-blur shadow-md py-4`}
+        className={`sticky top-0 z-50 bg-white/90 backdrop-blur shadow-md py-2 md:py-4`}
       >
-        <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="container mx-auto px-12 lg:px-0 flex justify-between items-center">
           {/* Logo */}
           <motion.div variants={item} className="flex items-center">
             <Image
@@ -94,9 +94,10 @@ export default function Navbar() {
           {/* Book Appointment Button */}
           <motion.button
             variants={item}
-            className="bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-700 transition-colors"
+            className="bg-gray-800 text-white px-3 py-1 md:px-6 md:py-2 text-sm md:text-base rounded hover:bg-gray-700 transition-colors"
           >
-            Book An Appointment
+            <span className="hidden md:inline">Book An Appointment</span>
+            <span className="md:hidden">Book</span>
           </motion.button>
         </div>
       </motion.nav>

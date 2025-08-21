@@ -26,19 +26,25 @@ export default function HealthAdviser() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="py-20 bg-white"
+      className="py-10 lg:py-20 bg-white"
     >
-      <div className=" mx-auto max-w-7xl ">
-        <motion.div variants={container} className="flex flex-wrap items-center mb-20">
-          <motion.div variants={item} className="w-full md:w-1/2 pr-8">
-            <div className="relative h-[500px] rounded-3xl overflow-hidden">
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Mobile heading */}
+        <motion.h2 variants={item} className="md:hidden text-4xl font-bold mb-8 text-center leading-tight">
+          Why People need a
+          <span className="block bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">Health Adviser</span>
+        </motion.h2>
+        
+        <motion.div variants={container} className="flex flex-col md:flex-row items-center mb-12 md:mb-20">
+          <motion.div variants={item} className="w-full md:w-1/2 md:pr-8 mb-6 md:mb-0">
+            <div className="relative h-64 md:h-[500px] rounded-lg md:rounded-3xl overflow-hidden">
               <Image src="/advisor.jpg" alt="Health Adviser" layout="fill" objectFit="cover" />
             </div>
           </motion.div>
           <motion.div variants={item} className="w-full md:w-1/2">
-            <motion.h2 variants={item} className="text-6xl font-semibold font-sanserif mb-6">
+            <motion.h2 variants={item} className="hidden md:block text-7xl lg:text-6xl font-bold font-sans mb-8 leading-tight">
               Why People need a
-              <span className="block text-green-600">Health Adviser</span>
+              <span className="block bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent drop-shadow-sm">Health Adviser</span>
             </motion.h2>
             <motion.div variants={container} className="text-gray-600 text-lg mb-8 space-y-6">
               <motion.p variants={item}>
@@ -70,7 +76,7 @@ export default function HealthAdviser() {
           </motion.div>
         </motion.div>
 
-        <motion.div variants={container} className="grid grid-cols-1 lg:-mt-20 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <motion.div variants={container} className="hidden md:grid grid-cols-1 lg:-mt-20 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {galleryItems.map((itemData, index) => (
             <motion.div variants={item} key={index} className="text-center group">
               <div className="relative h-56 mb-4 rounded-lg overflow-hidden">
