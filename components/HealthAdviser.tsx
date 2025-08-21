@@ -42,7 +42,7 @@ export default function HealthAdviser() {
             </div>
           </motion.div>
           <motion.div variants={item} className="w-full md:w-1/2">
-            <motion.h2 variants={item} className="hidden md:block text-7xl lg:text-6xl font-bold font-sans mb-8 leading-tight">
+            <motion.h2 variants={item} className="hidden md:block text-7xl lg:text-5xl font-sans mb-8 leading-tight">
               Why People need a
               <span className="block bg-gradient-to-r from-green-600 via-emerald-500 to-green-700 bg-clip-text text-transparent drop-shadow-sm">Health Adviser</span>
             </motion.h2>
@@ -88,7 +88,7 @@ export default function HealthAdviser() {
                   className="transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <h3 className="font-serif text-xl text-gray-800">{itemData.caption}</h3>
+              <h3 className="font-sans text-xl text-gray-800">{itemData.caption}</h3>
             </motion.div>
           ))}
         </motion.div>

@@ -74,7 +74,7 @@ export default function AppointmentFAQ() {
           {/* Appointment Card */}
           <motion.div variants={item} className="backdrop-blur-[2px] bg-white/85 rounded-lg shadow-2xl border border-green-100">
             <div className="p-6 md:p-8">
-              <motion.h2 variants={item} className="text-3xl md:text-4xl font-serif text-green-700">Make an Appointment</motion.h2>
+              <motion.h2 variants={item} className="text-3xl md:text-4xl font-sans text-green-700">Make an Appointment</motion.h2>
               <motion.div variants={item} className="h-1 w-14 bg-green-600 mt-3 mb-6" />
               <motion.p variants={item} className="text-gray-700 font-medium mb-6">
                 Office Hours : 07:30 and 19:00 Mon to Sat, Sun - Holiday
@@ -146,7 +146,7 @@ export default function AppointmentFAQ() {
           {/* FAQ Card */}
           <motion.div variants={item} className=" bg-transparent rounded-lg">
             <div className="p-6 md:p-8">
-              <motion.h3 variants={item} className="text-3xl md:text-4xl font-serif text-white drop-shadow-sm">FAQ&apos;s</motion.h3>
+              <motion.h3 variants={item} className="text-3xl md:text-4xl font-sans text-white drop-shadow-sm">FAQ&apos;s</motion.h3>
               <motion.div variants={item} className="h-1 w-14 bg-green-600 mt-3 mb-6" />
 
               {/* Active/featured item */}
@@ -193,7 +193,7 @@ export default function AppointmentFAQ() {
                       aria-expanded={openIndex === i + 1}
                       onClick={() => setOpenIndex(openIndex === i + 1 ? -1 : i + 1)}
                     >
-                      <span className="font-serif text-lg text-gray-800">{faqItem.question}</span>
+                      <span className="font-sans text-lg text-gray-800">{faqItem.question}</span>
                       <span className="text-xl text-gray-600">{openIndex === i + 1 ? '▴' : '▾'}</span>
                     </button>
                     {openIndex === i + 1 && (

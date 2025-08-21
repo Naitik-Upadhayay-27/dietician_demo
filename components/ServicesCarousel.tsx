@@ -59,7 +59,7 @@ export default function ServicesCarousel() {
     >
       <div className="mx-auto px-4 md:px-20">
         <motion.div variants={container} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-12 gap-4">
-          <motion.h2 variants={item} className="text-3xl md:text-6xl font-serif leading-tight">
+          <motion.h2 variants={item} className="text-3xl md:text-6xl font-sans leading-tight">
             <span className="text-green-600 font-bold">Discover</span> how we
             <span className="block text-green-600">transform lives</span>
           </motion.h2>
@@ -82,7 +82,7 @@ export default function ServicesCarousel() {
                       />
                     </div>
                     <div className="p-4 md:p-6 text-center">
-                      <h3 className="text-lg md:text-2xl font-serif mb-2">{service.title}</h3>
+                      <h3 className="text-lg md:text-2xl font-sans mb-2">{service.title}</h3>
                       <p className="text-gray-600 mb-4 text-sm md:text-base">{service.description}</p>
                       <button className="bg-gray-800 text-white px-4 py-2 md:px-6 text-sm md:text-base rounded-md hover:bg-gray-900 transition-colors">
                         Get Started

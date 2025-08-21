@@ -34,7 +34,7 @@ export default function NewYearResolution() {
               className="transition-transform filter contrast-[1.2] brightness-[1.1] duration-500 transform group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-500 flex items-center justify-center p-8">
-              <p className="text-white text-xl md:text-2xl font-serif text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+              <p className="text-white text-xl md:text-2xl font-sans text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
                 &quot;This year, invest in yourself. A healthy diet is a gift you give to your future.&quot;
               </p>
             </div>
@@ -47,7 +47,7 @@ export default function NewYearResolution() {
             style={{ backgroundImage: "url('/content-bg.jpg')" }}
           >
             <motion.div variants={container} className="p-8 md:p-16 text-left md:text-center">
-              <motion.h2 variants={item} className="text-4xl md:text-5xl font-serif text-gray-800 mb-4 leading-tight">
+              <motion.h2 variants={item} className="text-4xl md:text-5xl font-sans text-gray-800 mb-4 leading-tight">
                 <span className="text-green-600 font-bold block md:inline">Transform</span> your life in the next
                 <span className="block text-green-600 font-bold">90 days</span>
               </motion.h2>

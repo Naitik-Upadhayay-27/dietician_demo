@@ -116,7 +116,7 @@ export default function HeroCarousel() {
   }, [nextSlide])
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-[70vh] md:h-screen overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -138,9 +138,9 @@ export default function HeroCarousel() {
             />
           </div>
 
-          {/* Content */}
+          {/* Desktop Content */}
           <div
-            className={`absolute z-10 ${slide.cardWidth} ${slide.cardHeight} transition-all duration-1000 ease-out ${
+            className={`hidden md:block absolute z-10 ${slide.cardWidth} ${slide.cardHeight} transition-all duration-1000 ease-out ${
               index === currentIndex 
                 ? 'opacity-100 transform translate-y-0' 
                 : 'opacity-0 transform translate-y-8'
@@ -184,7 +184,7 @@ export default function HeroCarousel() {
 
               {/* Informational Cards Section */}
               <div className="mt-4">
-                <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 transition-all duration-700 delay-400 ${
+                <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 transition-all duration-700 delay-400 ${
                   index === currentIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 }`}>
                   {slide.id === 1 && (
@@ -196,14 +196,14 @@ export default function HeroCarousel() {
                         </div>
                         <p className="text-xs text-gray-600">Fill 1/2 veggies, 1/4 protein, 1/4 whole grains for steady energy.</p>
                       </div>
-                      <div className="rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
+                      <div className="hidden md:block rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
                         <div className="flex items-center gap-2 mb-1">
                           <Dumbbell className="w-4 h-4 text-emerald-600" />
                           <h4 className="text-sm font-semibold text-gray-800">10-min Walk</h4>
                         </div>
                         <p className="text-xs text-gray-600">A short walk after meals helps control blood sugar and mood.</p>
                       </div>
-                      <div className="rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
+                      <div className="hidden lg:block rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
                         <div className="flex items-center gap-2 mb-1">
                           <Calendar className="w-4 h-4 text-yellow-600" />
                           <h4 className="text-sm font-semibold text-gray-800">Protein Breakfast</h4>
@@ -222,7 +222,7 @@ export default function HeroCarousel() {
                         </div>
                         <p className="text-xs text-gray-600"><span className="font-medium">Fact:</span> Whole carbs (oats, fruits) fuel the brain and workouts.</p>
                       </div>
-                      <div className="rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
+                      <div className="hidden md:block rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
                         <div className="flex items-center gap-2 mb-1">
                           <Leaf className="w-4 h-4 text-green-600" />
                           <h4 className="text-sm font-semibold text-gray-800">Detox Myth</h4>
@@ -248,14 +248,14 @@ export default function HeroCarousel() {
                         </div>
                         <p className="text-xs text-gray-600">Aim for clear urine; sip water across the day, not all at once.</p>
                       </div>
-                      <div className="rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
+                      <div className="hidden md:block rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
                         <div className="flex items-center gap-2 mb-1">
                           <Moon className="w-4 h-4 text-indigo-600" />
                           <h4 className="text-sm font-semibold text-gray-800">Sleep</h4>
                         </div>
                         <p className="text-xs text-gray-600">7–9 hours supports appetite control and recovery.</p>
                       </div>
-                      <div className="rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
+                      <div className="hidden lg:block rounded-md border border-gray-200 bg-gray-50 hover:bg-green-50 transition-colors p-3">
                         <div className="flex items-center gap-2 mb-1">
                           <Leaf className="w-4 h-4 text-emerald-600" />
                           <h4 className="text-sm font-semibold text-gray-800">Fiber</h4>
@@ -266,8 +266,8 @@ export default function HeroCarousel() {
                   )}
                 </div>
 
-                {/* Subtle helper links (non-promotional) */}
-                <div className={`mt-4 flex flex-wrap gap-4 text-xs text-green-700 transition-all duration-700 delay-600 ${
+                {/* Subtle helper links (non-promotional) - Hidden on mobile */}
+                <div className={`mt-4 hidden md:flex flex-wrap gap-4 text-xs text-green-700 transition-all duration-700 delay-600 ${
                   index === currentIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                 }`}>
                   <a href="#" className="underline underline-offset-2 hover:text-green-800">Save Checklist</a>
@@ -277,19 +277,88 @@ export default function HeroCarousel() {
               </div>
             </div>
           </div>
+
+          {/* Mobile Content */}
+          <div
+            className={`md:hidden absolute z-10 w-[90%] max-w-sm h-auto left-1/2 bottom-8 transform -translate-x-1/2 transition-all duration-1000 ease-out ${
+              index === currentIndex 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="bg-white bg-opacity-95 rounded-lg p-4 shadow-lg">
+              <div className={`h-1 w-12 mb-4 bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-700 ${
+                index === currentIndex ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+              }`} />
+              
+              <span className={`inline-block text-[10px] uppercase tracking-wider px-2 py-1 rounded-full bg-green-100 text-green-700 mb-2 transition-all duration-700 delay-100 ${
+                index === currentIndex ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+              }`}>
+                New Year Health Guide
+              </span>
+
+              <h1 className={`text-lg font-bold text-gray-900 mb-2 transition-all duration-1000 delay-200 ${
+                index === currentIndex 
+                  ? 'opacity-100 transform translate-x-0' 
+                  : 'opacity-0 transform -translate-x-8'
+              }`}>
+                {slide.title}
+              </h1>
+
+              <p className={`text-gray-600 text-xs leading-relaxed mb-3 transition-all duration-1000 delay-300 ${
+                index === currentIndex 
+                  ? 'opacity-100 transform translate-x-0' 
+                  : 'opacity-0 transform translate-x-8'
+              }`}>
+                {slide.subtitle}
+              </p>
+
+              <div className={`transition-all duration-700 delay-400 ${
+                index === currentIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}>
+                {slide.id === 1 && (
+                  <div className="rounded-md border border-gray-200 bg-gray-50 p-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Apple className="w-3 h-3 text-green-600" />
+                      <h4 className="text-xs font-semibold text-gray-800">Balanced Plate</h4>
+                    </div>
+                    <p className="text-xs text-gray-600">Fill 1/2 veggies, 1/4 protein, 1/4 whole grains for steady energy.</p>
+                  </div>
+                )}
+                {slide.id === 2 && (
+                  <div className="rounded-md border border-gray-200 bg-gray-50 p-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Apple className="w-3 h-3 text-red-600" />
+                      <h4 className="text-xs font-semibold text-gray-800">Carbs Myth</h4>
+                    </div>
+                    <p className="text-xs text-gray-600"><span className="font-medium">Fact:</span> Whole carbs (oats, fruits) fuel the brain and workouts.</p>
+                  </div>
+                )}
+                {slide.id === 3 && (
+                  <div className="rounded-md border border-gray-200 bg-gray-50 p-2">
+                    <div className="flex items-center gap-2 mb-1">
+                      <Droplets className="w-3 h-3 text-sky-600" />
+                      <h4 className="text-xs font-semibold text-gray-800">Hydration</h4>
+                    </div>
+                    <p className="text-xs text-gray-600">Aim for clear urine; sip water across the day, not all at once.</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows - Hidden on mobile */}
       <button
-        className="absolute left-8 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-80 hover:bg-opacity-90 text-white p-5 rounded-full transition-all z-20 shadow-lg"
+        className="hidden md:block absolute left-8 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-80 hover:bg-opacity-90 text-white p-5 rounded-full transition-all z-20 shadow-lg"
         onClick={prevSlide}
       >
         <ChevronLeft size={60} />
       </button>
       
       <button
-        className="absolute right-8 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-80 hover:bg-opacity-90 text-white p-5 rounded-full transition-all z-20 shadow-lg"
+        className="hidden md:block absolute right-8 top-1/2 transform -translate-y-1/2 bg-gray-600 bg-opacity-80 hover:bg-opacity-90 text-white p-5 rounded-full transition-all z-20 shadow-lg"
         onClick={nextSlide}
       >
         <ChevronRight size={60} />

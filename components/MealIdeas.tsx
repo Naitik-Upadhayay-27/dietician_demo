@@ -58,7 +58,7 @@ export default function MealIdeas() {
               <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-60 transition-all duration-300"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-6 text-center">
                 <div className="w-16 h-0.5 bg-white mb-4"></div>
-                <h3 className="text-2xl font-serif mb-4">{idea.title}</h3>
+                <h3 className="text-2xl font-sans mb-4">{idea.title}</h3>
                 <p className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 max-w-xs">
                   {idea.description}
                 </p>

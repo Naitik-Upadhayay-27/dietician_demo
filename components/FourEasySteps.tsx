@@ -59,7 +59,7 @@ export default function FourEasySteps() {
       />
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div variants={container} className="relative container mx-auto px-4 text-center">
-        <motion.h2 variants={item} className="text-3xl md:text-6xl font-serif font-bold mb-8 md:mb-12">
+        <motion.h2 variants={item} className="text-3xl md:text-6xl font-sans font-bold mb-8 md:mb-12">
           Solution In 4 Easy Steps
           <span className="block font-normal">Successful life</span>
         </motion.h2>
