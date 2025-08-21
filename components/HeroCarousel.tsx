@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, Dumbbell, Apple, Calendar, Droplets, Moon, Leaf } from 'lucide-react'
+import Image from 'next/image'
 
 const slides = [
   {
@@ -101,6 +102,12 @@ export default function HeroCarousel() {
   }
 
   useEffect(() => {
+    // Preload all images
+    slides.forEach((slide) => {
+      const img = new window.Image()
+      img.src = slide.image
+    })
+
     const autoSlide = setInterval(() => {
       nextSlide()
     }, 5000)
@@ -118,13 +125,18 @@ export default function HeroCarousel() {
           }`}
         >
           {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed transition-transform duration-1000 ease-out"
-            style={{ 
-              backgroundImage: `url(${slide.image})`,
-              transform: index === currentIndex ? 'scale(1)' : 'scale(1.05)'
-            }}
-          />
+          <div className="absolute inset-0 transition-transform duration-1000 ease-out">
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              priority={index === 0}
+              className="object-cover"
+              style={{
+                transform: index === currentIndex ? 'scale(1)' : 'scale(1.05)'
+              }}
+            />
+          </div>
 
           {/* Content */}
           <div

@@ -2,6 +2,8 @@
 
 import { FileText, Calendar, HeartPulse, Smile } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
+import Image from 'next/image'
 
 const steps = [
   {
@@ -27,6 +29,11 @@ const steps = [
 ]
 
 export default function FourEasySteps() {
+  useEffect(() => {
+    const img = new window.Image()
+    img.src = '/mainbg2.jpg'
+  }, [])
+
   const container = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
@@ -41,9 +48,15 @@ export default function FourEasySteps() {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative py-32 bg-cover bg-center bg-fixed h-screen text-white"
-      style={{ backgroundImage: "url('/mainbg2.jpg')" }}
+      className="relative py-32 h-screen text-white"
     >
+      <Image
+        src="/mainbg2.jpg"
+        alt="Background"
+        fill
+        className="object-cover"
+        priority
+      />
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div variants={container} className="relative container mx-auto px-4 text-center">
         <motion.h2 variants={item} className="text-6xl font-serif font-bold mb-12">

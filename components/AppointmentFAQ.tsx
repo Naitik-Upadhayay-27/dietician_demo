@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 type FaqItem = {
   question: string
@@ -34,6 +35,11 @@ const faqs: FaqItem[] = [
 export default function AppointmentFAQ() {
   const [openIndex, setOpenIndex] = useState<number>(-1)
 
+  useEffect(() => {
+    const img = new window.Image()
+    img.src = '/faq.jpg'
+  }, [])
+
   const container = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
@@ -53,9 +59,12 @@ export default function AppointmentFAQ() {
       aria-label="Appointment and FAQ section"
     >
       {/* Background image */}
-      <div
-        className="absolute inset-0 -z-10 bg-center filter blur-[2px] bg-cover"
-        style={{ backgroundImage: "url('/faq.jpg')" }}
+      <Image
+        src="/faq.jpg"
+        alt="FAQ Background"
+        fill
+        className="object-cover filter blur-[2px] -z-10"
+        priority
       />
       {/* Soft overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-green-900/20" />
@@ -158,12 +167,14 @@ export default function AppointmentFAQ() {
                         Donec vitae sapien ut libero venenatis faucibus. Etiam sit amet orci eget eros faucibus
                         tin cidunt. Duis leo. Sed fringilla mauris sit amet nibh.
                       </motion.p>
-                      <motion.img
-                        variants={item}
-                        src="/content.jpg"
-                        alt="Nutritionist working"
-                        className="justify-self-start sm:justify-self-end w-44 h-28 object-cover rounded-md shadow-md"
-                      />
+                      <motion.div variants={item} className="justify-self-start sm:justify-self-end w-44 h-28 relative rounded-md shadow-md overflow-hidden">
+                        <Image
+                          src="/content.jpg"
+                          alt="Nutritionist working"
+                          fill
+                          className="object-cover"
+                        />
+                      </motion.div>
                     </motion.div>
                   </motion.div>
                 )}
