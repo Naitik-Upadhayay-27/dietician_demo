@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, Dumbbell, Apple, Calendar, Droplets, Moon, Leaf } from 'lucide-react'
 
 const slides = [
@@ -73,14 +73,14 @@ export default function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (isTransitioning) return
     setIsTransitioning(true)
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
       setIsTransitioning(false)
     }, 300)
-  }
+  }, [isTransitioning])
 
   const prevSlide = () => {
     if (isTransitioning) return
@@ -103,10 +103,10 @@ export default function HeroCarousel() {
   useEffect(() => {
     const autoSlide = setInterval(() => {
       nextSlide()
-    }, 5000) // Faster auto-advance
+    }, 5000)
 
     return () => clearInterval(autoSlide)
-  }, [])
+  }, [nextSlide])
 
   return (
     <div className="relative h-screen overflow-hidden">
