@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 
 type FaqItem = {
@@ -49,23 +49,30 @@ export default function AppointmentFAQ() {
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   }
 
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] })
+  const y = useTransform(scrollYProgress, [0, 1], ['-100%', '100%'])
+
   return (
     <motion.section
+      ref={sectionRef}
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative py-16 md:py-20"
+      className="relative py-16 md:py-20 overflow-hidden"
       aria-label="Appointment and FAQ section"
     >
-      {/* Background image */}
-      <Image
-        src="/faq.jpg"
-        alt="FAQ Background"
-        fill
-        className="object-cover filter blur-[2px] -z-10"
-        priority
-      />
+      {/* Parallax background */}
+      <motion.div aria-hidden className="absolute inset-0 -z-10" style={{ y }}>
+        <Image
+          src="/faq.jpg"
+          alt="FAQ Background"
+          fill
+          className="object-cover filter blur-[2px]"
+          priority
+        />
+      </motion.div>
       {/* Soft overlay for readability */}
       <div className="absolute inset-0 -z-10 bg-green-900/20" />
 

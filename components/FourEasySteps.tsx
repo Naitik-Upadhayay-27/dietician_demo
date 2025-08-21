@@ -1,8 +1,8 @@
 'use client'
 
 import { FileText, Calendar, HeartPulse, Smile } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const steps = [
@@ -42,21 +42,21 @@ export default function FourEasySteps() {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
   }
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] })
+  const y = useTransform(scrollYProgress, [0, 1], ['-100%', '100%'])
   return (
     <motion.section
+      ref={sectionRef}
       variants={container}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative py-16 md:py-32 min-h-screen md:h-screen text-white"
+      className="relative py-16 md:py-32 min-h-screen md:h-screen text-white overflow-hidden"
     >
-      <Image
-        src="/mainbg2.jpg"
-        alt="Background"
-        fill
-        className="object-cover md:fixed"
-        priority
-      />
+      <motion.div aria-hidden className="absolute inset-0 -z-10" style={{ y }}>
+        <Image src="/mainbg2.jpg" alt="Background" fill className="object-cover" priority />
+      </motion.div>
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       <motion.div variants={container} className="relative container mx-auto px-4 text-center">
         <motion.h2 variants={item} className="text-3xl md:text-6xl font-sans font-bold mb-8 md:mb-12">
